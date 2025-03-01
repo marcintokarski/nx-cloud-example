@@ -1,0 +1,15 @@
+<nav class="navigation">
+    <div class="logo">
+      <a routerLink="/">MyApp</a>
+    </div>
+    <ul class="menu">
+      @for (item of menuItems(); track item.text) {
+        <li class="menu-item">
+          <a [routerLink]="item.link" routerLinkActive="active">
+            <span class="material-icons">{{ item.icon }}</span>
+            <span class="menu-text">{{ item.text }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>

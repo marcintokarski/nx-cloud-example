@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { RouterOutlet } from '@angular/router';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  standalone: true,
+  imports: [RouterOutlet, NavigationComponent],
+  template: `
+    <app-navigation></app-navigation>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styles: [`
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  `]
 })
-export class AppComponent {
-  title = 'my-fe-app';
-}
+export class AppComponent {}
